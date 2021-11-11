@@ -110,11 +110,8 @@ function bestMoviesOfTheYear(
   movieObjectArray: Movie[],
   year: number
 ): string[] {
-  return movieObjectArray
-    .filter(movie => movie.score > 90 && movie.year == year)
-    .map(movie => movie.name)
+  return []
 }
-
 /*
  * 7) Define a function everyoneIsOdd that accepts an array of
  * numbers and returns true if every element of the array is
@@ -125,8 +122,7 @@ function bestMoviesOfTheYear(
  */
 
 function everyoneIsOdd(numbers: number[]): boolean {
-  // Replace the code below with your own code
-  return false
+  return numbers.every(n => n % 2 == 1)
 }
 
 /*
@@ -139,10 +135,8 @@ function everyoneIsOdd(numbers: number[]): boolean {
  */
 
 function findTheNeedle(strings: string[]): string {
-  // Replace the code below with your own code
-  return ''
+  return <string>strings.find(str => str.includes('needle'))
 }
-
 /*
  * 9) Define a function findTheNeedleIndex that accepts an array of
  * strings and returns the index of the string that contains
@@ -154,7 +148,7 @@ function findTheNeedle(strings: string[]): string {
 
 function findTheNeedleIndex(strings: string[]): number {
   // Replace the code below with your own code
-  return 42
+  return strings.findIndex(str => str.includes('needle'))
 }
 
 /*
@@ -167,8 +161,8 @@ function findTheNeedleIndex(strings: string[]): number {
  */
 
 function someoneToLove(strings: string[]): boolean {
-  // Replace the code below with your own code
-  return false
+  var lengths = strings.map(s => s.length)
+  return lengths.includes(4)
 }
 
 /*
@@ -206,8 +200,9 @@ function someoneToLove(strings: string[]): boolean {
 
 type Hobbies = Record<string, { title: string; description: string }>
 function objectKeys(objectOfHobbies: Hobbies): string[] {
-  // Replace the code below with your own code
-  return []
+  var entries = Object.entries(objectOfHobbies)
+  var strings = entries.map(([key, value]) => key + ' - ' + value.title)
+  return strings
 }
 
 /**
